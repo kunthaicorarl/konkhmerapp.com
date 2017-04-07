@@ -1,0 +1,199 @@
+
+    .navbar {
+        min-height: 77px;
+    }
+    .mobile-bar i {
+        color: #ddd;
+        font-size: 20px;
+    }
+    .nav > li {
+        border-right: 0;
+        display: block;
+        height: 38px !important;
+        position: relative;
+    }
+    .navbar-inverse {
+        background-color: #fff;
+        border-color: #ccc;
+    }
+    nav .active > a {
+        background: #fff !important;
+        height: inherit;
+    }
+    .nav > li {
+        border-right: 0;
+        display: block;
+        height: 40px;
+        position: relative;
+    }
+
+    li.active i {
+        color: #ef1313;
+    }
+
+    .nav > li:hover {
+        border-right: 0;
+        background: #fff;
+        display: block;
+        position: relative;
+    }
+
+    .nav > li:hover i {
+        color: #ef1313;
+    }
+    .search ::-webkit-input-placeholder {
+        color: #fff;
+    }
+
+    .search :-moz-placeholder { /* Firefox 18- */
+        color: #fff;
+    }
+
+    .search ::-moz-placeholder {  /* Firefox 19+ */
+        color: #fff;
+    }
+
+    .search :-ms-input-placeholder {
+        color: #fff;
+    }
+    .search {
+        position: relative;
+        width: 90%;
+    }
+    .search input {
+        background: rgba(169, 66, 66, 0.41) none repeat scroll 0 0;
+        border: 0 none;
+        color: #fff !important;
+        text-indent: 26px;
+        width: 100%;
+    }
+    .search .fa-search {
+        position: absolute;
+        top:3px;
+        left: 6px;
+        color: #fff;
+        font-size: 14px;
+    }
+    .top-menu .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+        color: #fff;
+        background-color: #fff;
+        height: 34px;
+    }
+    .top-menu .open ul.dropdown-menu {
+        background: #fff !important;
+        position: absolute;
+        left: -66px;
+        box-shadow: 0px 2px 2px #888;
+        margin-top: 1px;
+    }
+    .top-menu .open .dropdown-menu i {
+        font-size: 14px;
+        width: 20px;
+        float: left;
+    }
+
+    .top-menu .open .dropdown-menu a {
+        font-size: 12px;
+    }
+    .num_property{
+        color: #fff;
+        background: #F39C12;
+        padding-left: 4px;
+        padding-right: 4px;
+        border-radius: 2px;
+    }
+    .pro-title {
+        float: left;
+        width: 65px;
+        padding-left: 2px;
+    }
+    .login-button{
+        float: left;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background: rgb(239, 19, 19) none repeat scroll 0% 0%;
+    border-radius: 5px;
+    height: 36px;
+    width: 100px;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 6px;
+    padding-left: 2px;
+    box-shadow: -1px 1px 2px rgb(136, 136, 136);
+    border: 2px solid rgb(255, 255, 255);
+    text-align: center;
+    margin-left: 5px;
+    }
+
+    .view-image img {
+        cursor: zoom-in;
+    }
+
+    .zoom-image img {
+        cursor: zoom-out;
+    }
+
+    .item.view-image.ng-scope {
+        height: 290px;
+        overflow: hidden;
+    }
+
+    .detail-username {
+        color: #666;
+    }
+
+    .detail-username:hover {
+        color: rgb(243, 156, 18);
+    }
+
+    #target .box-tools {
+        position: absolute;
+        top: -30px;
+    }
+
+    .modal-content .col-xs-12 {
+        box-shadow: 0 0 0 #fff;
+    }
+
+    .modal-body {
+        padding: 0 !important;
+    }
+
+    .like-comment-view-share-content {
+        margin-left: -20px !important;
+        margin-right: 0px !important;
+        margin-bottom: 12px;
+        margin-top: -7px;
+    }
+
+    .like-comment-view-share {
+        margin-top: 7px;
+        height: 39px;
+        box-shadow: 0px 1px 0px 0px rgb(215, 216, 219), 0px 0px 0px 1px rgb(227, 228, 232);
+        padding-top: 6px;
+        background: rgb(245, 245, 245) none repeat scroll 0% 0%;
+    }
+
+    .slide-content {
+        margin-left: -20px;
+        margin-right: -9px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+    }
+
+    span.timeago {
+        font-size: 10px;
+    }
+
+    .header-contact{
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 6px;
+        padding-bottom: 10px;
+        margin-left: -10px;
+        padding-left: 10px;
+        margin-right: -10px;
+    }
+    .header-contact .message-btn{
+        float: right;
+        margin-right: 10px;
+    }

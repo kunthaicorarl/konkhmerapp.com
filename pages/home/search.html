@@ -1,0 +1,564 @@
+
+
+<div ng-controller="pages.home.search as vm">
+    <!--ng-if="vm.loading"-->
+ <div class="text-center" ng-if="vm.loading"
+             style="border-radius: 48%;margin-left: 0px;clear: both;height: 28px;width: 32px;text-align: center;padding-top: -13px;margin-left: 39%;">
+            <img ng-src="http://www.konkhmerapp.com/wp-mobile/khmovie/Scripts/img/ellipsis.svg" alt=""/>
+ </div>
+ <div style="margin-bottom: 27px;"></div>
+<section class="body-content">
+            <section class="container mobile-container" style="padding-right: 0px; padding-left: 0px;" >
+
+       <div infinite-scroll="vm.loadMore()" infinite-scroll-distance="3">
+
+<div  ng-repeat="v in vm.myItems" class="col-xs-6 col-sm-6 cate-item">
+                    <div class="row mobile-photo">
+<a href="#/watch/{{v.id}}">
+		<img width="100%" src="{{v.img}}">
+	</a>
+
+</div>
+<a onclick="return false;" href="#" ng-click="clickToOpen(post)">
+	<p class="m-grid-title ng-binding">{{v.title}}</p>
+</a>
+<p style="font-weight: bold; color:#ef1313;" ><span style="color: rgb(136, 136, 136); font-size: 11px;" class="ng-binding">Viewer</span>
+	1000 <span style="font-size: 10px;">K</span></p>
+
+
+<div style="margin-top: 7px; height: 39px; box-shadow: 0px 1px 0px 0px rgb(215, 216, 219), 0px 0px 0px 1px rgb(227, 228, 232); padding-top: 6px; background: rgb(245, 245, 245) none repeat scroll 0% 0%;">
+
+	<div class="col-xs-6">
+		<!-- ngIf: post.is_like.length>0 -->
+		<!-- ngIf: post.is_like.length==0 || post.is_like.length == undefined --><div title="Like" class="post-like ng-binding ng-scope" ng-if="post.is_like.length==0 || post.is_like.length == undefined" ng-click="like(post)">
+			<i class="fa fa-thumbs-o-up circle"></i>
+			2
+		</div><!-- end ngIf: post.is_like.length==0 || post.is_like.length == undefined -->
+
+	</div>
+	<div class="col-xs-6">
+		<i class="glyphicon glyphicon-signal circle"></i>
+		<span style="font-size: 12px;" > 10</span>
+	</div>
+</div>
+</div>
+</div>
+
+     
+      </section>  
+    </section>
+
+
+
+</div>
+
+
+
+
+<style>
+	.m-grid-title{
+		clear: both;
+		padding: 7px;
+		color: rgb(119, 119, 119);
+		margin: 0px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: 160px;
+	}
+	.mobile-photo {
+		margin: 0px !important;
+		text-align: center;
+		background: #444;
+		overflow: hidden;
+		height: 101px;
+		background-position: center center;
+		min-height: 174px;
+		position: relative;
+		box-shadow: 0px 0px 2px #444;
+	}
+
+	.mobile-photo a img {
+		position: absolute;
+		margin: auto;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+
+	.media .media-left {
+		padding: 6px;
+	}
+	.media img {
+		border-radius: 50%;
+		height: 50px;
+	}
+	.media-body {
+		padding-left: 3px;
+		padding-top: 9px;
+	}
+	.media-heading {
+		font-size: 13px;
+	}
+	.col-xs-12 {
+		background: #fff none repeat scroll 0 0;
+		border-radius: 2px;
+		box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+		height: auto;
+		margin-bottom: 0px;
+		padding: 0;
+		width: 100%;
+	}
+
+	.btn-sq {
+		font-size: 10px;
+		height: 100px !important;
+		padding: 10px;
+		text-align: center;
+		width: 100% !important;
+	}
+
+	.btn-sq-sm {
+		width: 50px !important;
+		height: 50px !important;
+		font-size: 10px;
+	}
+
+	.btn-sq-xs {
+		width: 25px !important;
+		height: 25px !important;
+		padding:2px;
+	}
+	.btn {
+		border-radius: 0;
+	}
+
+	.row {
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+	.col-xs-3.col-sm-3 {
+		margin-bottom: -1px;
+		margin-left: -1px;
+		padding: 0;
+	}
+
+	.filter-tags li {
+		border-radius: 2px;
+		color: #888;
+		display: inline;
+		font-weight: bold;
+		margin-right: 6px;
+		padding: 6px;
+		text-align: center;
+	}
+	.filter-tags .tags-true{
+		background: #F39C12 none repeat scroll 0 0;
+		color: #fff;
+		border: 1px solid rgb(204, 122, 0);
+	}
+	.filter-tags .tags-true i{
+		color: #fff !important;
+	}
+	.filter-tags .tags-false{
+		background: #fff none repeat scroll 0 0;
+		border: 1px solid #ddd;
+	}
+	.filter-tags .tags-false i{
+		color: #F39C12 !important;
+	}
+	.post-list div:last-child{
+		border-bottom: 0 !important;
+	}
+	.filter-tags li:hover{
+		background: #f29e21;
+		color: #fff !important;
+		border: 1px solid rgb(204, 122, 0);
+	}
+	.filter-tags li:hover i{
+		color: #fff !important;
+	}
+
+	.filter-type {
+		list-style: outside none none;
+		padding-left: 0;
+	}
+	ul.filter-tags {
+		padding-left: 18px;
+		padding-right: 18px;
+	}
+	.filter-tags li {
+		border-radius: 2px;
+		font-weight: bold;
+		padding: 6px;
+		text-align: center;
+		margin-bottom: 3px;
+		list-style: none;
+		display: block;
+		margin-right: 0;
+	}
+	.filter-type li:hover{
+		background: #f29e21;
+		color: #fff;
+		border: 1px solid rgb(204, 122, 0);
+	}
+	.filter-type .type-true{
+		background: #F39C12 none repeat scroll 0 0;
+		color: #fff;
+		border: 1px solid rgb(204, 122, 0);
+	}
+	.filter-type .type-false{
+		background: #fff none repeat scroll 0 0;
+		border: 1px solid #ddd;
+	}
+	.info .title{
+		text-overflow: ellipsis;
+	}
+
+	.cate-item {
+		background: #fff none repeat scroll 0 0;
+		border: 3px solid #ddd;
+		text-align: center;
+		width: 50%;
+		padding: 0;
+	}
+</style>   
+
+  <script type="text/ng-template" id="post-detail-modal">
+
+    <ng-if ng-if="postDetail.profile.phone != null">
+        <div class="header-contact">
+            <a href="tel:{!postDetail.profile.phone!}"  data-rel="external">
+                <button>
+                    Call now
+                </button>
+            </a>
+                    </div>
+    </ng-if>
+
+    <div ng-swipe-left="closeModal()" ng-swipe-right="closeModal()" id="target" class="post-detail modal-body" style="width: 100% !important;" ng-controller="PostController">
+        <i class="fa fa-times pull-right pointer" ng-click="closeModal()" title="Cancel"
+           style="position: absolute; top: 1px; right: 0px; z-index: 1; font-size: 14px;"></i>
+
+        <div style="position: absolute;z-index: 999999;right: 40px;color: #888;top: 30px;">
+                    </div>
+                <div class="col-xs-12">
+            <div class="user-block" style="padding: 10px 0 0 0">
+                <ng-if ng-if="postDetail.store_id==null">
+                    <div class="pull-left primary-font" style="font-size: 12px; margin-right: 4px;">
+                        <a href="https://m.khwall.com/user/{!postDetail.user_id !}">
+                            <img src="{!postDetail.profile.avatar | url:'https://img.khwall.com/profile/crop-'!}"
+                                 class="img-responsive"
+                                 alt="" title="{!postDetail.profile.first_name!} {!postDetail.profile.last_name!}"
+                                 style="width: 37px; border-radius: 50%; height: 37px;">
+                        </a>
+                    </div>
+
+                    <div class="pull-left primary-font" style="font-size: 12px;">
+                        <p style="margin-bottom: 1px;">
+                            <a href="https://m.khwall.com/user/{!post.user_id !}">
+                                {!postDetail.profile.first_name!} {!postDetail.profile.last_name!}
+                            </a>
+                        </p>
+                    <span class="" style="color: rgb(136, 136, 136);">
+                        <a href="https://m.khwall.com/post/{!postDetail.id!}"
+                           title="{!postDetail.created_at | dateToTimestamp | date:'MMM dd, yyyy  hh:mm:ss a'!}">
+                            <span class="description timeago" am-time-ago="postDetail.created_at|amUtc"></span>
+                        </a>
+                    </span>
+                    </div>
+                </ng-if>
+
+                <ng-if ng-if="postDetail.store_id!=null">
+                    <div class="pull-left primary-font" style="font-size: 12px; margin-right: 4px;">
+                        <a href="#store">
+                            <img src="https://img.khwall.com/profile/crop-{!postDetail.store.avatar!}"
+                                 class="img-responsive" title="{!postDetail.store.name!}" alt=""
+                                 style="width: 37px; border-radius: 50%; height: 37px;">
+                        </a>
+                    </div>
+                    <div class="pull-left primary-font" style="font-size: 12px;">
+                        <p style="margin-bottom: 1px;">
+                            <a href="https://m.khwall.com/store/{!postDetail.store.id!}">{!postDetail.store.name!}</a>
+                            <span>by</span>
+                            <a style="position: relative;" class="text-muted"
+                               href="https://m.khwall.com/user/{!postDetail.user_id !}">{!postDetail.profile.first_name!}
+                                {!postDetail.profile.last_name!}
+                            </a>
+                        </p>
+                    <span class="" style="color: rgb(136, 136, 136);">
+                        <a href="https://m.khwall.com/post/{!postDetail.id!}"
+                           title="{!postDetail.created_at | dateToTimestamp | date:'MMM dd, yyyy  hh:mm:ss a'!}">
+                            <span class="description" am-time-ago="postDetail.created_at|amUtc"></span>
+                        </a>
+                    </span>
+                    </div>
+                </ng-if>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="post-price text-yellow"
+                 style="color: rgb(243, 156, 18) !important;position: absolute;right: 0;top: 30px;">
+                    <span style="font-size: 12px;font-weight: bold;color: #888;padding-right: 4px;">
+                {!postDetail.type.description!}</span>{!postDetail.price|number!}
+                <span class="text-gray">{!postDetail.currency!}</span>
+            </div>
+
+
+        </div>
+        <div class="clearfix"></div>
+
+        
+                <div class="post-title" style="padding-top: 10px;">
+            <p style="font-weight: bold;color: #888;">
+                {!postDetail.title!}
+            </p>
+        </div>
+        
+        <div class="row" style="
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px; margin-bottom: 10px;">
+            <!-- slideshow -->
+            <div id="detail" class="carousel slide"
+                 data-ride="carousel">
+                <div class="carousel-inner">
+                                                            <div class="item view-image" ng-repeat="(key,image) in postDetail.image track by $index"
+                         ng-class="{active:($index==0)}">
+                        <img style="margin: auto;"
+                             data-zoom="https://img.khwall.com/post/lg/{!image.name!}"
+                             ng-src="https://img.khwall.com/post/md/{!image.name!}"
+                             class="img-responsive center-block"/>
+                    </div>
+                </div>
+
+                <span ng-if="(postDetail.image | objectKeysLength) > 1">
+							<a class="left carousel-control" href="#detail" data-slide="prev">
+								<i class="glyphicon glyphicon-chevron-left"></i>
+							</a>
+							<a class="right carousel-control" href="#detail" data-slide="next">
+								<i class="glyphicon glyphicon-chevron-right"></i>
+							</a>
+						</span>
+            </div>
+            <!-- end slideshow -->
+        </div>
+
+        <div class="row like-comment-view-share-content">
+            <div class="like-comment-view-share">
+
+                <div class="col-xs-3 text-center">
+                    <div title="Unlike" class="post-liked" ng-if="postDetail.is_like.length>0"
+                         ng-click="unlike(postDetail)">
+                        <i class="fa fa-thumbs-o-up circle"></i>
+                        {!postDetail.num_like!}
+                    </div>
+                    <div title="Like" class="post-like"
+                         ng-if="postDetail.is_like.length==0 || postDetail.is_like.length == undefined"
+                         ng-click="like(postDetail)">
+                        <i class="fa fa-thumbs-o-up circle"></i>
+                        {!postDetail.num_like!}
+                    </div>
+
+                </div>
+                <div class="col-xs-3 text-center">
+                    <i class="fa fa-commenting-o circle"></i>
+                    <span style="font-size: 12px;">{!postDetail.num_comment!}</span>
+
+                </div>
+                <div class="col-xs-3 text-center">
+                    <i class="glyphicon glyphicon-signal circle"></i>
+                    <span style="font-size: 12px;"> {!postDetail.num_view!}</span>
+                </div>
+
+                <div class="col-xs-3 text-center pointer">
+                    <span ng-init="post = (postDetail==null)?post:postDetail"></span>
+
+<div class="box-tools" style="position: relative; margin-top: 0px; top: auto;">
+    <div class="btn-group">
+        <i class="fa fa-share circle" title="Share" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu pull-right" role="menu">
+            <li>
+                <a href title="Share to facebook"
+                   socialshare=""
+                   socialshare-provider="facebook"
+                   socialshare-url="https://m.khwall.com/post/{!post.id!}"
+                   socialshare-text="{!post.title!}"
+                   socialshare-description="{!post.description!}"
+                   socialshare-media="https://img.khwall.com/post/md/{!post.image[0].name!}">
+                    <i class="fa fa-facebook facebook-share"></i>
+                    Facebook
+                </a>
+            </li>
+            <li>
+                <a href title="Share to twitter"
+                   socialshare=""
+                   socialshare-provider="twitter"
+                   socialshare-url="https://m.khwall.com/post/{!post.id!}"
+                   socialshare-text="{!post.title!}"
+                   socialshare-description="{!post.description!}"
+                   socialshare-media="https://img.khwall.com/post/md/{!post.image[0].name!}">
+                    <i class="fa fa-twitter twitter-share"></i>
+                    Twitter
+                </a>
+            </li>
+            <li>
+                <a href title="Share to google plus"
+                   socialshare=""
+                   socialshare-provider="google"
+                   socialshare-url="https://m.khwall.com/post/{!post.id!}"
+                   socialshare-text="{!post.title!}"
+                   socialshare-description="{!post.description!}"
+                   socialshare-media="https://img.khwall.com/post/md/{!post.image[0].name!}">
+                    <i class="fa fa-google-plus google-share"></i>
+                    Google+
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <div class="post-info">
+            <div class="post-description">
+                <p style="font-size: 13px;" ng-bind-html="postDetail.description | noHTML | newlines | emoji"></p>
+
+                <div class="clearfix">&nbsp;</div>
+                <a class="badge" href="https://m.khwall.com?page={!postDetail.category[0].id!}"
+                   style="font-size: 12px; color: #fff!important;">
+                    <i class="{!postDetail.category[0].icon!}"></i> {!postDetail.category[0].title!}
+                </a>
+
+                <hr style="margin: 10px 0;"/>
+
+                <div ng-init="post = postDetail; postDetail= post">
+
+                    <div class="post-comment" style="padding: 10px; margin-bottom: 10px;">
+                        <div ng-repeat="(key, comment) in postDetail.comments | orderBy :'created_at'">
+                            <div class="clearfix box-comment comment-{!$index%2!}">
+    <!-- User image -->
+
+    <img style="    width: 25px;
+    height: 25px;
+    border-radius: 50%;" src="{!comment.user.avatar | url:'https://img.khwall.com/profile/crop-'!}">
+
+    <div class="comment-text" style="    margin-left: 34px;
+    margin-top: -24px;">
+                      <span class="username" style="display: block; font-size: 11px;">
+                          <a href="https://m.khwall.com/user/{!comment.user.user_id!}">
+                              {!comment.user.first_name!}
+                              {!comment.user.last_name!}
+                          </a>
+                          -
+                        <span class="text-muted">
+                            <span style="font-size: 10px;" am-time-ago="comment.created_at|amUtc"></span>
+                        </span>
+                      </span><!-- /.username -->
+        <div style="display: inline-block; font-size: 12px;" class="description" ng-text-truncate="comment.comment"
+             ng-tt-chars-threshold="150">
+        </div>
+
+        <div class="reply-comment" ng-if="comment.reply.length>0">
+            <div class="clearfix"></div>
+            <div ng-repeat="(k1,replyComment) in comment.reply | orderBy:'created_at'">
+                <div class="box-comment comment-{!$index%2!}">
+    <!-- User image -->
+    <img style="    width: 25px;
+    height: 25px;
+    border-radius: 50%;" src="{!replyComment.user.avatar | url:'https://img.khwall.com/profile/crop-'!}">
+
+    <div class="comment-text" style="    margin-left: 34px;
+    margin-top: -24px;">
+                      <span class="username" style="display: block; font-size: 11px;">
+                          <a href="https://m.khwall.com/user/{!replyComment.user.user_id!}">
+                              {!replyComment.user.first_name!}
+                              {!replyComment.user.last_name!}
+                          </a>
+                          -
+                        <span class="text-muted">
+                            <span style="font-size: 10px;" am-time-ago="replyComment.created_at|amUtc"></span>
+                        </span>
+                      </span><!-- /.username -->
+        <div style="display: inline-block; font-size: 12px;" class="description" ng-text-truncate="replyComment.comment"
+             ng-tt-chars-threshold="150">
+        </div>
+    </div>
+    <!-- /.comment-text -->
+    <div class="clearfix"></div>
+</div><!-- /.box-comment -->            </div>
+        </div>
+
+        <div class="comment-action">
+            <ul style="list-style: none;
+    padding-left: 0;
+    font-size: 11px;">
+                <li ng-show="!comment.replying" ng-click="comment.replying=true" title="Reply comment"><a href>Reply</a>
+                </li>
+                <li ng-if="comment.num_reply>0" title="View more reply" ng-click="loadMoreReplyComment(comment)">
+                    <span style="width: 3px;height: 3px;background: #ddd;display: inline-block;top: -3px;position: relative;"></span>
+                    <a href>
+                        <span ng-bind="comment.num_reply|number"></span> Replies
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="comment-{!comment.id!}" ng-if="comment.replying">
+            <div class="clearfix"></div>
+<input maxlength="500" type="text" ng-keyup="$event.keyCode == 13 ? replyComment(comment) : null"
+       class="form-control input-sm" ng-model="comment.replyComment" placeholder="Press enter to reply comment"
+    style="height: 25px; border-radius: 0;">        </div>
+
+    </div>
+    <!-- /.comment-text -->
+</div><!-- /.box-comment -->                        </div>
+
+                        <div ng-if="postDetail.num_comment>postDetail.comments.length" style="position: relative;">
+                            <div ng-if="commenting" style="position: absolute; right: 20px; bottom: 16px;">
+                                <img ng-src="https://m.khwall.com/public/img/loader-line-h16.gif" alt=""/>                            </div>
+                            <a href ng-click="loadMoreComment(postDetail)" style="font-size: 11px;">View
+                                {!postDetail.num_comment - postDetail.comments.length!} comments more</a>
+                        </div>
+                    </div>
+                    <div class="post-comment">
+                        <a href="https://m.khwall.com/login"><i class="fa fa-key"></i> Login to comment</a>
+                    </div>
+                </div>
+                <div class="clearfix">&nbsp;</div>
+            </div>
+        </div>
+
+    </div>
+</script>
+
+<script>
+    jQuery(document).ready(function () {
+
+        $('body').on('click', '.zoom-image img', function () {
+            $('.zoom-image').hide();
+            $('.gallery-photo').show();
+            $('.zoom-image img').attr('src', " ");
+        });
+
+        $('body').on('click', '.view-image img', function () {
+            var url_image = $(this).data('zoom');
+            $('.zoom-image img').attr('src', url_image);
+            $('.zoom-image').show();
+            $('.gallery-photo').hide();
+        });
+
+        function getParameterByName(name, url) {
+            var url = url;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+    });
+</script>
