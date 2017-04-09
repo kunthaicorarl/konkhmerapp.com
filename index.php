@@ -26,9 +26,9 @@ $urlHost="http://localhost:81/mobile-project/3.0";
 <script src="https://m.khwall.com/public/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 <link rel="stylesheet" href="<?php echo $urlHost;?>/common.css"/>
   <script src="//unpkg.com/angular@1.5/angular.js"></script>
-    <script src="//unpkg.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.js"></script>
+    <!--<script src="//unpkg.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.js"></script>-->
 
-
+<script src="https://unpkg.com/angular-ui-router@0.4.2/release/angular-ui-router.min.js"></script>
 <style>
 	.m-grid-title{
 		clear: both;
