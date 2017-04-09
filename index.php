@@ -197,6 +197,12 @@ $urlHost="http://localhost:81/mobile-project/3.0";
 		width: 50%;
 		padding: 0;
 	}
+	.navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 20px;
+    margin-top: 6px;
+}
 </style>   
 
 </head>
