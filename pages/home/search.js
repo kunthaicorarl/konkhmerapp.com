@@ -30,7 +30,7 @@ app.controller("pages.home.search",['$scope','$state','$rootScope','$http',funct
                           vm.myItem=null;
                             //vm.myItem=myItems1;   
                             }).finally(function(){
-                               vm.loading = false;
+                            vm.loading = false;
                             });
              
            };

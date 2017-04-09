@@ -2,7 +2,7 @@ var app = angular.module('app', ['ui.router','infinite-scroll']);
 
 app.config(function($stateProvider) {
  //var urlHost="http://www.konkhmerapp.com/wp-mobile/khmovie";
-var urlHost="http://localhost:81/mobile-project/2.0/khmovie";
+var urlHost="http://localhost:81/mobile-project/3.0";
  var route={
    items:[  
             { 

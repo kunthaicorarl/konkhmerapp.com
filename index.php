@@ -1,7 +1,7 @@
 
 <?php 
   //$urlHost="http://www.konkhmerapp.com/wp-mobile/khmovie";
-$urlHost="http://localhost:81/mobile-project/2.0/khmovie";
+$urlHost="http://localhost:81/mobile-project/3.0";
   
 ?>
 <!DOCTYPE html>
@@ -206,7 +206,7 @@ $urlHost="http://localhost:81/mobile-project/2.0/khmovie";
 
     <!-- top menu -->
     <nav class="navbar navbar-inverse navbar-fixed-top animate">
-    <div style="background:#ef1313;padding: 15px;padding-bottom: 9px;padding-top: 9px;">
+    <div style="background:#ef1313;padding: 15px;padding-bottom: 9px;padding-top: 9px; display:none">
 
         <div class="search">
             <i class="fa fa-search"></i>
@@ -249,7 +249,7 @@ $urlHost="http://localhost:81/mobile-project/2.0/khmovie";
         </div>
     </div>
 </nav>
-<div style="margin-bottom: 27px;"></div>
+<div style="margin-bottom: -27px;"></div>
  <!--CONTENT-->
  <ui-view></ui-view>
 
@@ -298,7 +298,7 @@ $urlHost="http://localhost:81/mobile-project/2.0/khmovie";
 <!--<script src="https://m.khwall.com/public/js/popup-post.js"></script>-->
 <script src="<?php echo $urlHost;?>/pages/watch/search.js"></script>
 <!--<script src="https://m.khwall.com/public/plugins/angular/scroll.js"></script>-->
-<script src="<?php echo $urlHost;?>/khmovie/filter/filterAsText.js"></script>
+<script src="<?php echo $urlHost;?>/filter/filterAsText.js"></script>
 <script src="<?php echo $urlHost;?>/Scripts/ng-infinite-scroll.js"></script>
 </body>
 </html>
