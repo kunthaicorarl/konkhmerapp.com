@@ -15,7 +15,7 @@
 
 <div  ng-repeat="v in vm.myItems" class="col-xs-6 col-sm-6 cate-item">
                     <div class="row mobile-photo">
-<a href="#/watch/{{v.id}}">
+<a href="#/watch/{{v.id}}" ui-sref="watch.search({ id: v.id,obj:v.content }) >
 		<img width="100%" src="{{v.img}}">
 	</a>
 

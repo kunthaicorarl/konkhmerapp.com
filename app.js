@@ -38,12 +38,12 @@ var urlHost="http://localhost:81/mobile-project/3.0";
                     }  
             },
             { 
-              name:'watch-search',
+              name:'watch.search',
               object:{
                       url:'/watch/:id',
                       templateUrl:urlHost+'/pages/watch/search.html',
                       controller: 'pages.watch.search',
-                      params:{obj:null}
+                      params:{obj:null,id:null}
                     }  
             }
          ]
