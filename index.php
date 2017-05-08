@@ -1,9 +1,4 @@
 
-<?php 
-  //$urlHost="http://www.konkhmerapp.com/wp-mobile/khmovie";
-$urlHost="http://localhost:81/mobile-project/3.0";
-  
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,13 +17,13 @@ $urlHost="http://localhost:81/mobile-project/3.0";
 <link rel="stylesheet" href="https://m.khwall.com/public/bootstrap/css/bootstrap.min.css">
 <link href='https://fonts.googleapis.com/css?family=Hanuman' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
-<link rel="stylesheet" href="<?php echo $urlHost;?>/Scripts/css/custom.css">
+<link rel="stylesheet" href="http://www.konkhmerapp.com/wp-mobile/khmovie/Scripts/css/custom.css">
 <script src="https://m.khwall.com/public/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-<link rel="stylesheet" href="<?php echo $urlHost;?>/common.css"/>
+<link rel="stylesheet" href="http://www.konkhmerapp.com/wp-mobile/khmovie/common.css"/>
   <script src="//unpkg.com/angular@1.5/angular.js"></script>
-    <!--<script src="//unpkg.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.js"></script>-->
-<link rel="stylesheet" href="<?php echo $urlHost;?>/Scripts/yb/mobile-list.css">
-<script src="https://unpkg.com/angular-ui-router@0.4.2/release/angular-ui-router.min.js"></script>
+    <script src="//unpkg.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.js"></script>
+
+
 <style>
 	.m-grid-title{
 		clear: both;
@@ -197,12 +192,6 @@ $urlHost="http://localhost:81/mobile-project/3.0";
 		width: 50%;
 		padding: 0;
 	}
-	.navbar-nav>li>a {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    line-height: 20px;
-    margin-top: 6px;
-}
 </style>   
 
 </head>
@@ -212,12 +201,12 @@ $urlHost="http://localhost:81/mobile-project/3.0";
 
     <!-- top menu -->
     <nav class="navbar navbar-inverse navbar-fixed-top animate">
-    <div style="background:#ef1313;padding: 15px;padding-bottom: 9px;padding-top: 9px; display:none">
+    <div style="background:#ef1313;padding: 15px;padding-bottom: 9px;padding-top: 9px;">
 
         <div class="search">
             <i class="fa fa-search"></i>
             <form name="mySearch">
-                <input type="text" ng-model="filterText" ng-keyup="searchMovie(filterText)" ng-model="q" class="search_field _field" id="search_query" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search">
+                <input type="text" ng-model="filterText" ng-keyup="searchMovie(vm.filterText)" ng-model="q" class="search_field _field" id="search_query" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search">
             </form>
 
                     </div>
@@ -245,7 +234,7 @@ $urlHost="http://localhost:81/mobile-project/3.0";
                <li>
                   
                     <a href="#/noty">
-                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <i class="fa fa-globe" aria-hidden="true"></i>
                         <span ng-show="nt.global_unread>0" class="notify-number label label-success animate-hide animate-show"
                               ng-bind="nt.global_unread"></span>
                     </a>
@@ -255,12 +244,182 @@ $urlHost="http://localhost:81/mobile-project/3.0";
         </div>
     </div>
 </nav>
-<div style="margin-bottom: -27px;"></div>
+<div style="margin-bottom: 27px;"></div>
  <!--CONTENT-->
  <ui-view></ui-view>
 
  <!--CONTENT-->
+<!--  
+</script>
+    <script type="text/ng-template" id="report-modal.html">
+    <div style="position: relative; z-index:9990001;">
+        <div class="modal-header" ng-init="reportType()">
+            <i class="fa fa-times pull-right pointer" ng-click="closeModal()" title="Cancel"></i>
+            <h4 class="modal-title">Report Post</h4>
 
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>
+                        Please kindly tell us what is the problem of this post?
+                    </p>
+                    <label ng-repeat="(k,val) in reportTypes" style="display: block;">
+                        <input ng-model="report.reason" type="radio" name="report_type"
+                               value="{!val.id!}"/>
+                        <span>{!val.description!}</span>
+                    </label>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default btn-sm" ng-click="closeModal()" title="Cancel">Cancel</button>
+            <button class="btn btn-warning btn-sm" ng-click="report(reportPost)" title="Confirm">Confirm</button>
+        </div>
+    </div>
+</script>    <div class="login-register-button">
+        <div data-toggle="modal" ng-click="openModal('login-modal.html','login-modal')" class="login-button">
+            <i class="fa fa-key"></i> Login
+        </div>
+
+        <div data-toggle="modal" onclick="return (window.location.href='https://m.khwall.com/register')" class="login-button">
+            <i class="fa fa-user"></i> Register
+        </div>
+    </div>
+
+
+        <script type="text/ng-template" id="login-modal.html">
+        <div style="position: relative; z-index: 10001; padding: 25px;" ng-controller="AuthController">
+            <div class="modal-header" style="margin-bottom: 30px;border-bottom: 0px solid #e5e5e5;">
+                <i class="fa fa-times pull-right pointer" ng-click="closeModal()" title="Cancel"></i>
+                
+            </div>
+            <div class="modal-body">
+                <div class="clearfix">&nbsp;</div>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-offset-3">
+                        <div class="form-group">
+                            <div style="margin-top: -19px;">
+                                <a href="https://m.khwall.com/social/facebook">
+                                    <button class="loginBtn loginBtn--facebook">
+                                        Facebook
+                                    </button>
+                                </a>
+
+                                <a href="https://m.khwall.com/social/google">
+                                    <button class="loginBtn loginBtn--google">
+                                        Google
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                        <form ng-submit="login()" method="post">
+                            <div class="form-group" style="margin-bottom: -22px;">
+
+                                <hr>
+                                <div class="or-login">
+                                    OR
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input name="email" ng-model="user.email" type="email" required="" class="form-control"
+                                       placeholder="Email">
+                                <i class="glyphicon glyphicon-envelope form-control-feedback"></i>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input name="password" ng-model="user.password" required="" type="password"
+                                       class="form-control" placeholder="Password">
+                                <i class="glyphicon glyphicon-lock form-control-feedback"></i>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-warning btn-block btn-flat" style="width: 100% !important;"
+                                        type="submit">
+                                    <i class="fa fa-lock"></i> Login
+                                </button>
+                            </div>
+                            <p class=""><a href="https://m.khwall.com/forget-password" class="text-yellow">
+                                    I lost my password
+                                </a></p>
+
+                            <p class=""><a href="https://m.khwall.com/register"
+                                           class="text-yellow">Don&#039;t have account...? Create one now...</a></p>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </script>
+
+
+    <script type="text/ng-template" id="login-modal-view-profile-store.html">
+        <div style="position: relative; z-index: 10001; padding: 25px;" ng-controller="AuthController">
+            <div class="modal-header" style="margin-bottom: 30px;border-bottom: 0px solid #e5e5e5;">
+                <a href="https://m.khwall.com">
+                    <i class="fa fa-home" aria-hidden="true"></i> back home
+                </a>
+
+            </div>
+            <div class="modal-body">
+                <div class="clearfix">&nbsp;</div>
+                <div class="row">
+                    <div class="col-sm-6 col-lg-offset-3">
+                        <div class="form-group">
+                            <div style="margin-top: -19px;">
+                                <a href="https://m.khwall.com/social/facebook">
+                                    <button class="loginBtn loginBtn--facebook">
+                                        Facebook
+                                    </button>
+                                </a>
+
+                                <a href="https://m.khwall.com/social/google">
+                                    <button class="loginBtn loginBtn--google">
+                                        Google
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                        <form ng-submit="login()" method="post">
+                            <div class="form-group" style="margin-bottom: -22px;">
+
+                                <hr>
+                                <div class="or-login">
+                                    OR
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input name="email" ng-model="user.email" type="email" required="" class="form-control"
+                                       placeholder="Email">
+                                <i class="glyphicon glyphicon-envelope form-control-feedback"></i>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input name="password" ng-model="user.password" required="" type="password"
+                                       class="form-control" placeholder="Password">
+                                <i class="glyphicon glyphicon-lock form-control-feedback"></i>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-warning btn-block btn-flat" style="width: 100% !important;"
+                                        type="submit">
+                                    <i class="fa fa-lock"></i> Login
+                                </button>
+                            </div>
+                            <p class=""><a href="https://m.khwall.com/forget-password" class="text-yellow">
+                                    I lost my password
+                                </a></p>
+
+                            <p class=""><a href="https://m.khwall.com/register"
+                                           class="text-yellow">Don&#039;t have account...? Create one now...</a></p>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </script>
+     Bootstrap 3.3.5 -->
 <script src="http://www.konkhmerapp.com/wp-mobile/khmovie/Scripts/bootstrap.min.js"></script>
 
 </div>
@@ -296,16 +455,16 @@ $urlHost="http://localhost:81/mobile-project/3.0";
 </div>
 <div class="clearfix">&nbsp;</div>
 
-<script src="<?php echo $urlHost;?>/app.js"></script>
-<script src="<?php echo $urlHost;?>/pages/home/search.js"></script>
-<script src="<?php echo $urlHost;?>/pages/category/search.js"></script>
-<script src="<?php echo $urlHost;?>/pages/tv/search.js"></script>
-<script src="<?php echo $urlHost;?>/pages/noty/search.js"></script>
+<script src="http://www.konkhmerapp.com/wp-mobile/khmovie/app.js"></script>
+<script src="http://www.konkhmerapp.com/wp-mobile/khmovie/pages/home/search.js"></script>
+<script src="http://www.konkhmerapp.com/wp-mobile/khmovie/pages/category/search.js"></script>
+<script src="http://www.konkhmerapp.com/wp-mobile/khmovie/pages/tv/search.js"></script>
+<script src="http://www.konkhmerapp.com/wp-mobile/khmovie/pages/noty/search.js"></script>
 <!--<script src="https://m.khwall.com/public/js/popup-post.js"></script>-->
-<script src="<?php echo $urlHost;?>/pages/watch/search.js"></script>
+<script src="http://www.konkhmerapp.com/wp-mobile/khmovie/pages/watch/search.js"></script>
 <!--<script src="https://m.khwall.com/public/plugins/angular/scroll.js"></script>-->
-<script src="<?php echo $urlHost;?>/filter/filterAsText.js"></script>
-<script src="<?php echo $urlHost;?>/Scripts/ng-infinite-scroll.js"></script>
+<script src="http://www.konkhmerapp.com/wp-mobile/khmovie/filter/filterAsText.js"></script>
+<script src="http://www.konkhmerapp.com/wp-mobile/khmovie/Scripts/ng-infinite-scroll.js"></script>
 </body>
 </html>
 

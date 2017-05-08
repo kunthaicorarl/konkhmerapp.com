@@ -1,15 +1,14 @@
 var app = angular.module('app', ['ui.router','infinite-scroll']);
 
 app.config(function($stateProvider) {
- //var urlHost="http://www.konkhmerapp.com/wp-mobile/khmovie";
-var urlHost="http://localhost:81/mobile-project/3.0";
+
  var route={
    items:[  
             { 
               name:'home-search',
               object:{
                       url:'/',
-                      templateUrl:urlHost+'/pages/home/search.html',
+                      templateUrl:'http://www.konkhmerapp.com/wp-mobile/khmovie/pages/home/search.html',
                       controller: 'pages.home.search'
                     }          
             },
@@ -17,7 +16,7 @@ var urlHost="http://localhost:81/mobile-project/3.0";
               name:'category-search',
               object:{
                       url:'/category',
-                      templateUrl:urlHost+'/pages/category/search.html',
+                      templateUrl:'http://www.konkhmerapp.com/wp-mobile/khmovie/pages/category/search.html',
                       controller: 'pages.category.search'
                     }  
             },
@@ -25,7 +24,7 @@ var urlHost="http://localhost:81/mobile-project/3.0";
               name:'tv-search',
               object:{
                       url:'/tv',
-                      templateUrl:urlHost+'/pages/tv/search.html',
+                      templateUrl:'http://www.konkhmerapp.com/wp-mobile/khmovie/pages/tv/search.html',
                       controller: 'pages.tv.search'
                     }  
             },
@@ -33,7 +32,7 @@ var urlHost="http://localhost:81/mobile-project/3.0";
               name:'noty-search',
               object:{
                       url:'/noty',
-                      templateUrl:urlHost+'/pages/noty/search.html',
+                      templateUrl:'http://www.konkhmerapp.com/wp-mobile/khmovie/pages/noty/search.html',
                       controller: 'pages.noty.search'
                     }  
             },
@@ -41,9 +40,9 @@ var urlHost="http://localhost:81/mobile-project/3.0";
               name:'watch-search',
               object:{
                       url:'/watch/:id',
-                      templateUrl:urlHost+'/pages/watch/search.html',
+                      templateUrl:'http://www.konkhmerapp.com/wp-mobile/khmovie/pages/watch/search.html',
                       controller: 'pages.watch.search',
-                      params:{obj:null,id:null}
+                      params:{obj:null}
                     }  
             }
          ]

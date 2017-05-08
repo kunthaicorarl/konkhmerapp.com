@@ -1,6 +1,6 @@
 
     .navbar {
-        min-height: 51px;
+        min-height: 77px;
     }
     .mobile-bar i {
         color: #ddd;
@@ -13,7 +13,7 @@
         position: relative;
     }
     .navbar-inverse {
-        background-color: #ef1313;
+        background-color: #fff;
         border-color: #ccc;
     }
     nav .active > a {
@@ -21,11 +21,10 @@
         height: inherit;
     }
     .nav > li {
-          border-right: 0;
-    display: block;
-    height: 51px !important;
-    position: relative;
-    width: 69px;
+        border-right: 0;
+        display: block;
+        height: 40px;
+        position: relative;
     }
 
     li.active i {
