@@ -1,14 +1,14 @@
 var app = angular.module('app', ['ui.router','infinite-scroll']);
 
 app.config(function($stateProvider) {
-
+ var objRoot="http://localhost:81/mobile-project/3.0";
  var route={
    items:[  
             { 
               name:'home-search',
               object:{
                       url:'/',
-                      templateUrl:'http://www.konkhmerapp.com/wp-mobile/khmovie/pages/home/search.html',
+                      templateUrl:objRoot+'/pages/home/search.html',
                       controller: 'pages.home.search'
                     }          
             },
@@ -16,7 +16,7 @@ app.config(function($stateProvider) {
               name:'category-search',
               object:{
                       url:'/category',
-                      templateUrl:'http://www.konkhmerapp.com/wp-mobile/khmovie/pages/category/search.html',
+                      templateUrl:objRoot+'/pages/category/search.html',
                       controller: 'pages.category.search'
                     }  
             },
@@ -24,7 +24,7 @@ app.config(function($stateProvider) {
               name:'tv-search',
               object:{
                       url:'/tv',
-                      templateUrl:'http://www.konkhmerapp.com/wp-mobile/khmovie/pages/tv/search.html',
+                      templateUrl:objRoot+'/pages/tv/search.html',
                       controller: 'pages.tv.search'
                     }  
             },
@@ -32,7 +32,7 @@ app.config(function($stateProvider) {
               name:'noty-search',
               object:{
                       url:'/noty',
-                      templateUrl:'http://www.konkhmerapp.com/wp-mobile/khmovie/pages/noty/search.html',
+                      templateUrl:objRoot+'/pages/noty/search.html',
                       controller: 'pages.noty.search'
                     }  
             },
@@ -40,7 +40,7 @@ app.config(function($stateProvider) {
               name:'watch-search',
               object:{
                       url:'/watch/:id',
-                      templateUrl:'http://www.konkhmerapp.com/wp-mobile/khmovie/pages/watch/search.html',
+                      templateUrl:objRoot+'/pages/watch/search.html',
                       controller: 'pages.watch.search',
                       params:{obj:null}
                     }  
